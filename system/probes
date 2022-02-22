@@ -1,0 +1,24 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     |
+    \\  /    A nd           | Website:  www.openfoam.com
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Description
+    Writes out values of fields from cells nearest to specified locations.
+
+\*---------------------------------------------------------------------------*/
+
+#includeEtc "caseDicts/postProcessing/probes/probes.cfg"
+
+fields (p rho U UMean UPrime2Mean pMean pPrime2Mean);
+probeLocations
+(
+    (0.7455787 0.05082 0) //LDV velocity probe
+    (0.7426079 0.0512376 0) //pressure probe
+    (1.38386   0.0381 0)   // Experimental pressure outflow probe
+    (0.73616   0.0381 0)   // Experimental velocity inflow probe
+);
+
+// ************************************************************************* //

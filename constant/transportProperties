@@ -1,0 +1,97 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+phases (water vapour);
+
+phaseChangeTwoPhaseMixture Merkle;
+
+pSat             pSat       [1 -1 -2 0 0]   2300 ;   // saturation pressure
+
+sigma           sigma [1 0 -2 0 0 0 0] 0.07;
+
+water
+{
+    transportModel Newtonian;
+    nu             1e-6;
+   rho             1000;
+}
+
+vapour
+{
+    transportModel Newtonian;
+    nu              4.273e-04;
+    rho             1;            //0.02308;
+}
+
+KunzCoeffs
+{
+    UInf            UInf   [0 1 -1 0 0 0 0]     8.6;
+    tInf            tInf   [0 0 1 0 0 0 0]      0.0026; // L = 0.1 m
+    Cc              Cc     [0 0 0 0 0 0 0]      100;
+    Cv              Cv     [0 0 0 0 0 0 0]      100;
+}
+
+MerkleCoeffs
+{
+    UInf            UInf   [0 1 -1 0 0 0 0]     8.38;
+    tInf            tInf   [0 0 1 0 0 0 0]      0.01193;  // L = 0.1 m
+    Cc              Cc     [0 0 0 0 0 0 0]      80;
+    Cv              Cv     [0 0 0 0 0 0 0]      1e-03;
+}
+
+DhruvMCoeffs
+{
+    UInf            UInf   [0 1 -1 0 0 0 0]     8.38;
+    tInf            tInf   [0 0 1 0 0 0 0]      0.01193;  // L = 0.1 m
+    Cc              Cc     [0 0 0 0 0 0 0]      80;
+    Cv              Cv     [0 0 0 0 0 0 0]      1e-03;
+}
+
+SinusoidalMCoeffs
+{
+    UInf            UInf   [0 1 -1 0 0 0 0]     8.38;
+    tInf            tInf   [0 0 1 0 0 0 0]      0.01193;  // L = 0.1 m
+    Cc              Cc     [0 0 0 0 0 0 0]      80;
+    Cv              Cv     [0 0 0 0 0 0 0]      1e-03;
+}
+
+SchnerrSauerCoeffs
+{
+    n               n      [0 -3 0 0 0 0 0]     1.6e+13;
+    dNuc            dNuc   [0 1 0 0 0 0 0]      2.0e-06;
+    Cc              Cc     [0 0 0 0 0 0 0]      1;
+    Cv              Cv     [0 0 0 0 0 0 0]      1;
+}
+
+DhruvCoeffs
+{
+    n               n      [0 -3 0 0 0 0 0]     1.6e+13;
+    dNuc            dNuc   [0 1 0 0 0 0 0]      2.0e-06;
+    Cc              Cc     [0 0 0 0 0 0 0]      1;
+    Cv              Cv     [0 0 0 0 0 0 0]      1;
+}
+
+SinusoidalCoeffs
+{
+    n               n      [0 -3 0 0 0 0 0]     1.6e+13;
+    dNuc            dNuc   [0 1 0 0 0 0 0]      2.0e-06;
+    Cc              Cc     [0 0 0 0 0 0 0]      1;
+    Cv              Cv     [0 0 0 0 0 0 0]      1;
+}
+
+
+
+// ************************************************************************* //
